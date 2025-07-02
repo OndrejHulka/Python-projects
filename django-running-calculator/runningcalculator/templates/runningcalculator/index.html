@@ -1,0 +1,164 @@
+{% extends 'runningcalculator/base.html' %}
+
+{% block content %}
+<style>
+    .container {
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p{
+        text-align: center;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select {
+        width: 50%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<div class="container">
+    <h1>Welcome to the Running Calculator</h1>
+    <p>To calculate the value, you want complete the other two</p>
+    <form method="post">
+        {% csrf_token %}
+        
+        <h2>Enter the time</h2>
+        <label for="id_hours" id="label_hours">Hours:</label>
+        {{ form.hours }}
+
+        <label for="id_minutes" id="label_minutes">Minutes:</label>
+        {{ form.minutes }}
+
+        <label for="id_seconds" id="label_seconds">Seconds:</label> 
+        {{ form.seconds }}
+
+        <br>
+        <br>
+        <button type="submit" name="calculate_final_time">Calculate Final Time</button> 
+        <button type="reset" name="reset_final_time">Reset</button>
+        
+        <br> <br>
+
+        <h2>Enter the distance</h2> 
+        <label for="id_distance">Distance:</label>
+        {{ form.distance }}
+
+        <label for="id_unit_choice">Unit:</label>
+        {{ form.unit_choice }}
+
+        <br>
+        <label for="id_distance_choice">Pick an event: </label>
+        {{ form.distance_choice}}
+
+        <br>
+
+        <button type="submit" name="calculate_distance">Calculate Distance</button>
+        <button type="reset" name="reset_distance">Reset</button>
+        <br> <br>
+
+        <h2>Enter the pace</h2>
+        <label for="id_pace_minutes">Pace Minutes:</label>
+        {{ form.pace_minutes }}
+
+        <label for="id_pace_seconds">Pace Seconds:</label>
+        {{ form.pace_seconds }}
+
+        <br> <br>
+        <button type="submit" name="calculate_pace">Calculate Pace</button>
+        <button type="reset" name="reset_pace">Reset</button>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#id_distance_choice').change(function() {
+            var selectedEvent = $(this).val();
+            // Set the value of the distance field based on the selected event
+            if (selectedEvent === '0.06') {
+                $('#id_distance').val('0.06');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '0.1') {
+                $('#id_distance').val('0.1');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '0.2') {
+                $('#id_distance').val('0.2');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '0.4') {
+                $('#id_distance').val('0.4');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '0.8') {
+                $('#id_distance').val('0.8');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '1.5') {
+                $('#id_distance').val('1.5');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '1.6') {
+                $('#id_distance').val('1.6');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '5') {
+                $('#id_distance').val('5');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '10') {
+                $('#id_distance').val('10');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '21.097') {
+                $('#id_distance').val('21.097');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '42.195') {
+                $('#id_distance').val('42.195');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '50') {
+                $('#id_distance').val('50');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '100') {
+                $('#id_distance').val('100');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '160.934') {
+                $('#id_distance').val('160.934');
+                $('#id_unit_choice').val('km');
+            } else if (selectedEvent === '321.869') {
+                $('#id_distance').val('321.869');
+                $('#id_unit_choice').val('km');
+            }
+            // Add more conditions for other events as needed
+        });
+    });
+</script>
+{% endblock content %}

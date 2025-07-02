@@ -1,0 +1,23 @@
+{% extends 'calculator/base.html' %}
+
+{% block content %}
+<div class="row mt-5">
+    <div class="col-12 col-md-6 mx-md-auto">
+        <h1>Calculator</h1> <br>
+
+        <form method="post">
+            {% csrf_token %}
+            {{form}} <br>
+            <label for="operation">Choose matematical operation: </label>
+            <select id="operation" name="operation">
+                <option value="addition">addition</option>
+                <option value="subtraction">subtraction</option>
+                <option value="multiplication">multiplication</option>
+                <option value="division">division</option>
+            </select> <br>
+            <button class="btn btn-primary" type="submit">Caclulate</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

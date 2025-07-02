@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home {% endblock title %}
+
+{% block content %}
+{% if user.is_authenticated %}
+   <h1>Welcome {{ user.username }}</h1>
+   <a href="{% url 'article_list' %}" class="btn btn-primary">Read Articles</a>
+   <a href="{% url 'article_personal' %}" class="btn btn-primary">View my articles</a>
+   <a href="{% url 'article_new' %}" class="btn btn-primary">Write New articles</a>
+{% else %}
+    <h2>You are not logged in</h2>
+    <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+    <a href="{% url 'signup' %}" class="btn btn-primary">Signup</a>
+{% endif %}
+{% endblock content %}

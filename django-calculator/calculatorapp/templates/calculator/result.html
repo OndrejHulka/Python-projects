@@ -1,0 +1,14 @@
+{% extends 'calculator/base.html' %}
+
+{% block content%} 
+<br>
+<br>
+<H1>Result is {{result}}</H1>
+
+<h2>{{first_number}} {{operation}} {{second_number}} = {{result}}</h2> <br> 
+
+<a href="{% url 'index' %}" class="btn btn-outline-primary mt-3 mx-3">Go back</a> 
+
+
+
+{% endblock content %}
