@@ -1,6 +1,6 @@
 # 🧩 Small Projects Collection
 
-This repository contains a collection of small to mid-sized projects that I built to improve my programming skills and explore different technologies. Each project is stored in its own folder.
+This repository contains a collection of small to mid-sized projects that I built to improve my programming skills and explore different technologies in python. Each project is stored in its own folder.
 ## 📦 Projects Overview
 
 ### ♟️ Chess (Pygame)
@@ -36,5 +36,5 @@ This repository is a playground of experiments and learning projects:
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/small-projects.git
-cd small-projects
+git clone https://github.com/OndrejHulka/Python-projects
+cd Python-projects
